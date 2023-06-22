@@ -67,25 +67,22 @@ $DB_DATABASE = "db_protest";
 $table = "book";
 
 try {
-$db = new PDO("mysql:host=$DB_HOST;dbname=$DB_DATABASE", $DB_USER, $DB_PASSWORD);
+$db = new PDO("mysql:host=$DB_HOST; port=$DB_PORT;dbname=$DB_DATABASE", $DB_USER, $DB_PASSWORD);
 
 foreach($db->query("SELECT * FROM $table ") as $row) {
 echo "
 <div class='flex-w flex-c-m cd100 wsize1 m-lr-auto p-t-116'>
 <div class='flex-col-c-m size2 bor1 m-l-10 m-r-10 m-b-15'>
-				<a href='".$row['file']."'> <span class='l1-txt3 p-b-9 days'>".$row['title']."</span></a>
+				<a href='".$row['file']."'> <span class='s1-txt2'>".$row['title']."</span></a>
 				<span class='s1-txt2'>".$row['author']."</span>
 			</div>";}
-
-
-
 
 
 }
 
 
 
-} catch (PDOException $e) {
+ catch (PDOException $e) {
 print "Error!: " . $e->getMessage() . "<br/>";
 die();
 }
@@ -111,50 +108,6 @@ die();
 ?>
 
 
-
-			<div class="flex-w flex-c-m cd100 wsize1 m-lr-auto p-t-116">
-				<div class="flex-col-c-m size2 bor1 m-l-10 m-r-10 m-b-15">
-					<span class="l1-txt3 p-b-9 days">Book</span>
-					<span class="s1-txt2">1</span>
-				</div>
-
-				<div class="flex-col-c-m size2 bor1 m-l-10 m-r-10 m-b-15">
-					<span class="l1-txt3 p-b-9 hours">Book</span>
-					<span class="s1-txt2">2</span>
-				</div>
-
-				<div class="flex-col-c-m size2 bor1 m-l-10 m-r-10 m-b-15">
-					<span class="l1-txt3 p-b-9 minutes">Book</span>
-					<span class="s1-txt2">3</span>
-				</div>
-
-				<div class="flex-col-c-m size2 bor1 m-l-10 m-r-10 m-b-15">
-					<span class="l1-txt3 p-b-9 seconds">Book</span>
-					<span class="s1-txt2">4</span>
-				</div>
-				
-			</div>
-			<div class="flex-w flex-c-m cd100 wsize1 m-lr-auto p-t-116">
-				<div class="flex-col-c-m size2 bor1 m-l-10 m-r-10 m-b-15">
-					<span class="l1-txt3 p-b-9 days">Book</span>
-					<span class="s1-txt2">5</span>
-				</div>
-
-				<div class="flex-col-c-m size2 bor1 m-l-10 m-r-10 m-b-15">
-					<span class="l1-txt3 p-b-9 hours">Book</span>
-					<span class="s1-txt2">6</span>
-				</div>
-
-				<div class="flex-col-c-m size2 bor1 m-l-10 m-r-10 m-b-15">
-					<span class="l1-txt3 p-b-9 minutes">Book</span>
-					<span class="s1-txt2">7</span>
-				</div>
-
-				<div class="flex-col-c-m size2 bor1 m-l-10 m-r-10 m-b-15">
-					<span class="l1-txt3 p-b-9 seconds">Book</span>
-					<span class="s1-txt2">8</span>
-				</div>
-				
 			</div>
 		</div>
 	</div>
