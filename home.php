@@ -59,7 +59,7 @@
 				
 					<span style="font-size: medium;">Enjoy reading digital books, all for free and available anytime and anywhere..</span>
 				</p>
-				<form class="w-full flex-w flex-c-m validate-form" >
+				<form class="w-full flex-w flex-c-m validate-form" action="" >
 
 					<p class="txt-center s1-txt1 p-t-5">
 						Enter the title of book you wish to read
@@ -72,7 +72,7 @@
 				</br>
 				</form>
 				
-				<p class="txt-center s1-txt1 p-t-5"><a href="list.php">See All </a> </p>
+				<p class="txt-center s1-txt1 p-t-5"><a href="shelf.php">See All </a> </p>
 			</div>
 				
 
