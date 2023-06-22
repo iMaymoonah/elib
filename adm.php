@@ -51,7 +51,7 @@
 				
 					
 				</p>
-				<form class="w-full flex-w flex-c-m validate-form" action="admin.html">
+				<form class="w-full flex-w flex-c-m validate-form" action="">
 					<p class="txt-center s1-txt1 p-t-5">
 						Enter the <strong>Title</strong> of the Book
 					</p>
@@ -97,6 +97,8 @@
 if(isset($_POST['submit'])  )
 {
 
+
+
 $title = $_POST['title']; 
 $auther = $_POST['auther'];
 $file = $_POST['file'];
@@ -108,19 +110,30 @@ $DB_USER = "db_protestacc";
 $DB_PASSWORD = "Amalshamrani1010$$";
 $DB_DATABASE = "db_protest";
 $table = "book";
+$options = array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION)
+
+$stmt = $dbh->prepare($sql);
 
 try {
 $db = new PDO("mysql:host=$DB_HOST;dbname=$DB_DATABASE", $DB_USER, $DB_PASSWORD);
 
 $sql = "INSERT INTO book (title, author, file)
-VALUES ('$title', '$auther', '$file')";
-// use exec() because no results are returned
-$conn->exec($sql);
-echo "New record created successfully";
+VALUES (':title', ':auther', ':file')";
+$stmt = $dbh->prepare($sql);
 
 
+// Bind parameters
+$stmt->bindParam(':title', $title);
+$stmt->bindParam(':author',$auther);
+$stmt->bindParam(':file', $file);
 
-} catch (PDOException $e) {
+$title = $_POST['title']; 
+$auther = $_POST['auther'];
+$file = $_POST['file'];
+// Execute statement
+$stmt->execute();
+
+catch (PDOException $e) {
 print "Error!: " . $e->getMessage() . "<br/>";
 die();
 }
